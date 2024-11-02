@@ -12,4 +12,19 @@ export const admin = [
         screen: "Dashboard",
         icon: BriefcaseBusiness,
     },
+    {
+        name: "Item Management",
+        screen: "ItemManagement",
+        icon: BriefcaseBusiness,
+    },
+    {
+        name: "User Management",
+        screen: "UserManagement",
+        icon: BriefcaseBusiness,
+    },
+    {
+        name: "History",
+        screen: "History",
+        icon: BriefcaseBusiness,
+    },
 ];

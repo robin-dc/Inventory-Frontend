@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Admin, Login, Protected, Register } from "./pages";
+import { Admin, Login, Protected } from "./pages";
 // import { useEffect, useState } from "react";
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
         /> */}
         <Route path="/" element={<Login/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
         {/* <Route path="/admin/:id" element={<Protected><Admin /></Protected>} /> */}
         <Route path="/admin/:id" element={<Admin />} />
       </Routes>
