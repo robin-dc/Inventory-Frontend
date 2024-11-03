@@ -97,6 +97,15 @@ class Api{
         }
     }
 
+    async login(user){
+        try {
+            const response = await axios.post('/login', user)
+            return response.data
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     async logout(){
         try {
             const response = await axios.post('/logout')
