@@ -1,5 +1,10 @@
 import React from "react";
 import {
+  Card,
+  CardContent,
+  CardHeader,
+} from "@/components/ui/card";
+import {
   Table,
   TableBody,
   TableCell,
@@ -22,32 +27,35 @@ const data = [
   { action: "Item Edited",  itemId: "105", performedBy: "Engr. Espiritu", dateTime: "2024-11-01 21:38" },
 ];
 
-export function HistoryTable() {
+export function HistoryTableCard() {
   return (
-    <div className="w-4/7 mx-auto mt-1 bg-white shadow-md rounded-lg overflow-hidden">
-      <h2 className="p-4 text-lg font-semibold text-[#015C92]">History</h2>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="p-4 bg-[#015C92] text-white text-left font-semibold">Action Description</TableHead>
-            <TableHead className="p-4 bg-[#015C92] text-white text-left font-semibold">Item ID</TableHead>
-            <TableHead className="p-4 bg-[#015C92] text-white text-left font-semibold">Performed By</TableHead>
-            <TableHead className="p-4 bg-[#015C92] text-white text-left font-semibold">Date & Time</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {data.map((row, index) => (
-            <TableRow key={index} className={index % 2 === 0 ? "bg-white" : "bg-[#E9F3FF]"}>
-              <TableCell className="p-4 text-left">{row.action}</TableCell>
-              <TableCell className="p-4 text-left">{row.itemId}</TableCell>
-              <TableCell className="p-4 text-left">{row.performedBy}</TableCell>
-              <TableCell className="p-4 text-left">{row.dateTime}</TableCell>
+    <Card className="w-4/7 mx-auto mt-1 bg-white shadow-md rounded-lg"> <CardHeader>
+        <h2 style={{fontFamily: 'Poppins, sans-serif', fontSize: '32px', fontWeight: 700, lineHeight: '18px', textAlign: 'left', }} className="p-4 text-[#015C92]" > History </h2>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Action Description</TableHead>
+              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Item ID</TableHead>
+              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Performed By</TableHead>
+              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Date & Time</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+          </TableHeader>
+          <TableBody>
+            {data.map((row, index) => (
+              <TableRow key={index} className={index % 2 === 0 ? "bg-white" : "bg-[#E9F3FF]"}>
+                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.action}</TableCell>
+                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.itemId}</TableCell>
+                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.performedBy}</TableCell>
+                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.dateTime}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
   );
 }
 
-export default HistoryTable;
+export default HistoryTableCard;
