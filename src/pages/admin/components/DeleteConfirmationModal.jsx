@@ -4,21 +4,23 @@ import {
   DialogContent,
   DialogDescription,
   DialogFooter,
+  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 const DeleteConfirmationModal = () => {
-=======
+=========
 
 const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want to delete this item?" }) => {
->>>>>>> dev
+>>>>>>>>> Temporary merge branch 2
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">Delete</Button>
       </DialogTrigger>
-      <DialogContent className="w-[350px] h-[400px] flex flex-col items-center justify-center">
+      <DialogContent className="w-[350px] h-[400px] flex flex-col items-center justify-center"> 
+        
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="120"
@@ -29,16 +31,16 @@ const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want 
           strokeWidth=".50"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="mr-4 my-2.5"
+          className="mr-4 my-2.5"  
         >
           <circle cx="12" cy="12" r="10" />
           <path d="m15 9-6 6" />
           <path d="m9 9 6 6" />
         </svg>
-
+       
         <DialogTitle className="text-center">Are you sure?</DialogTitle>
         <DialogDescription className="text-center">
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
           Are you sure you want to delete this item? <br /> This action cannot
           be undone.
         </DialogDescription>
@@ -54,7 +56,7 @@ const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want 
             Delete
           </Button>
         </DialogFooter>
-=======
+=========
           { text } <br />  This action cannot be undone.
         </DialogDescription>
         <DialogFooter className="flex justify-between">
@@ -74,8 +76,9 @@ const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want 
           Delete
         </Button>
       </DialogFooter>
->>>>>>> dev
+>>>>>>>>> Temporary merge branch 2
       </DialogContent>
+      
     </Dialog>
   );
 };
