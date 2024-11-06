@@ -90,12 +90,6 @@
   }
 }
 
-/* Added for usermanagement pop up edit and delete */
-.left-bottom-position {
-  transform-origin: left bottom;
-  transform: translate(-60%, -40%);
-}
-
 @layer base {
   * {
     @apply border-border;
