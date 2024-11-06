@@ -29,7 +29,7 @@ const data = [
 
 export function HistoryTableCard() {
   return (
-    <Card className="w-4/7 mx-auto mt-1 bg-white shadow-md rounded-xl"> <CardHeader>
+    <div className="p-6 bg-white rounded-xl grid"> <CardHeader>
         <h2 className="pe-4 text-[#015C92] text-primary text-[32px] font-bold leading-[1.125rem] text-left">History</h2>
       </CardHeader>
       <CardContent>
@@ -55,7 +55,7 @@ export function HistoryTableCard() {
 </Table>
 
       </CardContent>
-    </Card>
+    </div>
   );
 }
 
