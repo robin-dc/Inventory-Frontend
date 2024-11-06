@@ -29,30 +29,31 @@ const data = [
 
 export function HistoryTableCard() {
   return (
-    <Card className="w-4/7 mx-auto mt-1 bg-white shadow-md rounded-lg"> <CardHeader>
-        <h2 style={{fontFamily: 'Poppins, sans-serif', fontSize: '32px', fontWeight: 700, lineHeight: '18px', textAlign: 'left', }} className="p-4 text-[#015C92]" > History </h2>
+    <Card className="w-4/7 mx-auto mt-1 bg-white shadow-md rounded-xl"> <CardHeader>
+        <h2 className="pe-4 text-[#015C92] text-primary text-[32px] font-bold leading-[1.125rem] text-left">History</h2>
       </CardHeader>
       <CardContent>
         <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Action Description</TableHead>
-              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Item ID</TableHead>
-              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Performed By</TableHead>
-              <TableHead className="p-4 bg-[#015C92] text-white text-left text-base font-normal leading-6 font-poppins">Date & Time</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {data.map((row, index) => (
-              <TableRow key={index} className={index % 2 === 0 ? "bg-white" : "bg-[#E9F3FF]"}>
-                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.action}</TableCell>
-                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.itemId}</TableCell>
-                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.performedBy}</TableCell>
-                <TableCell style={{fontFamily: 'Poppins, sans-serif'}} className="p-4 text-left font-medium">{row.dateTime}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead className="pl-12 pr-0 bg-[#015C92] text-white text-justify text-base font-normal h-12">Action Description</TableHead>
+      <TableHead className="pl-4 pr-16 bg-[#015C92] text-white text-left text-base font-normal h-12">Item ID</TableHead>
+      <TableHead className="pl-4 pr-14 bg-[#015C92] text-white text-left text-base font-normal h-12">Performed By</TableHead>
+      <TableHead className="pl-4 pr-16 bg-[#015C92] text-white text-left text-base font-normal h-12">Date & Time</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {data.map((row, index) => (
+      <TableRow key={index} className={index % 2 === 0 ? "bg-white" : "bg-[#E9F3FF]"}>
+        <TableCell className="pl-12 text-left font-normal h-12">{row.action}</TableCell>
+        <TableCell className="pl-4 pr-16 text-left font-normal h-12">{row.itemId}</TableCell>
+        <TableCell className="pl-4 pr-16 text-left font-normal h-12">{row.performedBy}</TableCell>
+        <TableCell className="pl-4 pr-16 text-left font-normal h-12">{row.dateTime}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
+
       </CardContent>
     </Card>
   );
