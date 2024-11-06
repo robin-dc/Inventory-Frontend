@@ -73,11 +73,7 @@ const users = [
     name: "Jhestin Digap",
     email: "jhestindigap@gmail.com",
   },
-  {
-    role: "Admin",
-    name: "Jhestin Digap",
-    email: "jhestindigap@gmail.com",
-  },
+
   // You can add more users here for testing
 ];
 
