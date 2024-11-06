@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-const DeleteConfirmationModal = () => {
+const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want to delete this item?" }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -36,7 +36,7 @@ const DeleteConfirmationModal = () => {
        
         <DialogTitle className="text-center">Are you sure?</DialogTitle>
         <DialogDescription className="text-center">
-          Are you sure you want to delete this item?  <br />  This action cannot be undone.
+          { text } <br />  This action cannot be undone.
         </DialogDescription>
         <DialogFooter className="flex justify-between">
        
@@ -48,6 +48,7 @@ const DeleteConfirmationModal = () => {
         </Button>
         
         <Button
+        onClick={confirmDelete}
           variant="destructive"
           className="bg-red-500 text-white mx-3"  
         >
