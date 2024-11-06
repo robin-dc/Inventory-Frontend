@@ -24,10 +24,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 // Sample User Data
 const users = [
+  {
+    role: "Admin",
+    name: "Jhestin Digap",
+    email: "jhestindigap@gmail.com",
+  },
   {
     role: "Admin",
     name: "Jhestin Digap",
