@@ -8,8 +8,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+<<<<<<<<< Temporary merge branch 1
+const DeleteConfirmationModal = () => {
+=========
 
 const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want to delete this item?" }) => {
+>>>>>>>>> Temporary merge branch 2
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -36,6 +40,23 @@ const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want 
        
         <DialogTitle className="text-center">Are you sure?</DialogTitle>
         <DialogDescription className="text-center">
+<<<<<<<<< Temporary merge branch 1
+          Are you sure you want to delete this item? <br /> This action cannot
+          be undone.
+        </DialogDescription>
+        <DialogFooter className="flex justify-between">
+          <Button
+            variant="outline"
+            className="border-2 border-gray-500 mx-3 hover:bg-gray-400"
+          >
+            Cancel
+          </Button>
+
+          <Button variant="destructive" className="bg-red-500 text-white mx-3">
+            Delete
+          </Button>
+        </DialogFooter>
+=========
           { text } <br />  This action cannot be undone.
         </DialogDescription>
         <DialogFooter className="flex justify-between">
@@ -55,6 +76,7 @@ const DeleteConfirmationModal = ({ confirmDelete, text = "Are you sure you want 
           Delete
         </Button>
       </DialogFooter>
+>>>>>>>>> Temporary merge branch 2
       </DialogContent>
       
     </Dialog>
