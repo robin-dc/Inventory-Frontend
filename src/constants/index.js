@@ -3,6 +3,12 @@ import {
     UserCog,
     BookCheck,
     BriefcaseBusiness,
+    ClipboardPen,
+    History,
+    Users,
+    LayoutDashboard,
+
+    
 
 } from "lucide-react"
 
@@ -10,21 +16,21 @@ export const admin = [
     {
         name: "Dashboard",
         screen: "Dashboard",
-        icon: BriefcaseBusiness,
+        icon: LayoutDashboard,
     },
     {
         name: "Item Management",
         screen: "ItemManagement",
-        icon: BriefcaseBusiness,
+        icon: ClipboardPen,
     },
     {
         name: "User Management",
         screen: "UserManagement",
-        icon: BriefcaseBusiness,
+        icon: Users,
     },
     {
         name: "History",
         screen: "History",
-        icon: BriefcaseBusiness,
+        icon: History,
     },
 ];
