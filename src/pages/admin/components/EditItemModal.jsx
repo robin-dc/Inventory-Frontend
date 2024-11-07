@@ -31,7 +31,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const ItemActionModal = () => {
+const EditItemModal = () => {
   const [dateAssign, setDateAssign] = React.useState();
   const [dateInspect, setDateInspect] = React.useState();
   const [dateReturn, setDateReturn] = React.useState();
@@ -214,4 +214,4 @@ const ItemActionModal = () => {
   );
 };
 
-export default ItemActionModal;
+export default EditItemModal;
