@@ -141,7 +141,6 @@ const items = [
 
 const ItemManagement = () => {
   return (
-    <Dialog>
       <div className="p-6 bg-white rounded-xl grid">
         <h1 className="text-primary text-[32px] font-bold">Item Management</h1>
 
@@ -209,15 +208,18 @@ const ItemManagement = () => {
                         className="w-40 p-0 mt-2 rounded-xl border border-primary"
                       >
                         <div className="grid">
-                          <DialogTrigger asChild>
-                            <Button
-                              variant="secondary"
-                              className="bg-white text-primary rounded-none rounded-t-xl text-[12px] border border-b-primary flex justify-start"
-                            >
-                              <Pencil className="scale-80" />
-                              Edit
-                            </Button>
-                          </DialogTrigger>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button
+                                variant="secondary"
+                                className="bg-white text-primary rounded-none rounded-t-xl text-[12px] border border-b-primary flex justify-start"
+                              >
+                                <Pencil className="scale-80" />
+                                Edit
+                              </Button>
+                            </DialogTrigger>
+                            <EditItemModal/>
+                          </Dialog>
 
                           <Button
                             variant="secondary"
@@ -237,8 +239,6 @@ const ItemManagement = () => {
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </div>
-      <EditItemModal/>
-    </Dialog>
   )
 }
 
