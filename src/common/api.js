@@ -99,7 +99,7 @@ class Api{
 
     async login(user){
         try {
-            const response = await axios.post('/login', user)
+            const response = await axios.post('/login', user, { withCredentials: true })
             return response.data
         } catch (error) {
             console.log(error.message)
@@ -109,6 +109,15 @@ class Api{
     async logout(){
         try {
             const response = await axios.post('/logout')
+            return response.data
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    async checkAuth(){
+        try {
+            const response = await axios.get('/check-auth', { withCredentials: true })
             return response.data
         } catch (error) {
             console.log(error.message)

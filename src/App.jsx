@@ -19,8 +19,8 @@ function App() {
         /> */}
         <Route path="/" element={<Login/>} />
         <Route path="/login" element={<Login/>} />
-        {/* <Route path="/admin/:id" element={<Protected><Admin /></Protected>} /> */}
-        <Route path="/admin/:id" element={<Admin />} />
+        <Route path="/admin/:id" element={<Protected><Admin /></Protected>} />
+        {/* <Route path="/admin/:id" element={<Admin />} /> */}
       </Routes>
     </div>
   )
