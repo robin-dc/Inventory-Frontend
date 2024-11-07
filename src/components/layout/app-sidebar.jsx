@@ -1,4 +1,3 @@
-
 import {
   Sidebar,
   SidebarContent,
@@ -8,15 +7,15 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import DeleteConfirmationModal from "@/pages/admin/components/DeleteConfirmationModal"
+} from "@/components/ui/sidebar";
+import DeleteConfirmationModal from "@/pages/admin/components/DeleteConfirmationModal";
+import CreateItemModal from "@/pages/admin/components/CreateItemModal";
+import UserActionModal from "@/pages/admin/components/UserActionModal"
 
-export function AppSidebar({screens, setCurrentNav, children}) {
+export function AppSidebar({ screens, setCurrentNav, children }) {
   return (
     <Sidebar collapsible="icon" className="py-4">
-      <div className="flex justify-end px-4">
-        {children}
-      </div>
+      <div className="flex justify-end px-4">{children}</div>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="text-2xl my-4">URS</SidebarGroupLabel>
@@ -24,7 +23,10 @@ export function AppSidebar({screens, setCurrentNav, children}) {
             <SidebarMenu>
               {screens?.map((item) => (
                 <SidebarMenuItem key={item.name} className="cursor-pointer">
-                  <SidebarMenuButton asChild onClick={() => setCurrentNav(item.screen)}>
+                  <SidebarMenuButton
+                    asChild
+                    onClick={() => setCurrentNav(item.screen)}
+                  >
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.name}</span>
@@ -32,11 +34,13 @@ export function AppSidebar({screens, setCurrentNav, children}) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
-              <DeleteConfirmationModal/>
+              <DeleteConfirmationModal />
+              <CreateItemModal />
+              <UserActionModal/>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }
