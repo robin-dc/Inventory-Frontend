@@ -37,15 +37,10 @@ const EditItemModal = () => {
   const [dateReturn, setDateReturn] = React.useState();
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Add Item</Button>
-      </DialogTrigger>
-
       <DialogContent className="w-[578px] px-[48px] pt-[40px] pb-[40px] rounded-[16px]">
         <DialogHeader className="">
           <DialogTitle className="text-[24px] text-center text-[#015C92] ">
-            Create New Item
+            Edit Item
           </DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 pt-1 pb-4">
@@ -210,7 +205,7 @@ const EditItemModal = () => {
           </Button>
         </DialogFooter>
       </DialogContent>
-    </Dialog>
+
   );
 };
 
