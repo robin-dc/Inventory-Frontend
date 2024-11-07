@@ -94,7 +94,7 @@ const UserManagement = () => {
           <Input
             type="text"
             placeholder="Search..."
-            className="bg-secondary rounded-xl border border-[#C2D8FF] text-primary pl-4 pr-10 py-2 w-full focus:outline-none"
+            className="bg-secondary rounded-xl border border-[#C2D8FF] text-primary pl-4 pr-10 py-2 w-full focus:outline-none placeholder:text-primary text-[16px]"
           />
           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary scale-75" />
         </div>
