@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import DeleteConfirmationModal from "@/pages/admin/components/DeleteConfirmationModal";
 import CreateItemModal from "@/pages/admin/components/CreateItemModal";
+import UserActionModal from "@/pages/admin/components/UserActionModal"
 
 export function AppSidebar({ screens, setCurrentNav, children }) {
   return (
@@ -35,6 +36,7 @@ export function AppSidebar({ screens, setCurrentNav, children }) {
               ))}
               <DeleteConfirmationModal />
               <CreateItemModal />
+              <UserActionModal/>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
