@@ -25,12 +25,12 @@ const UserActionModal = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button  variant="outline">Create User</Button>
+        <Button  variant="outline">Create New User</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <div className="self-center">
-          <DialogTitle className="text-blue-900/90 font-extrabold">Create New User</DialogTitle>
+          <DialogTitle className="text-blue-900/90 text-[24px] text-center text-[#015C92]">Create New User</DialogTitle>
           </div>
         </DialogHeader>
 
@@ -39,11 +39,11 @@ const UserActionModal = () => {
 
         <div className="grid gap-4 py-4">
           <div className="">
-            <Label htmlFor="role" className="text-right">
+            <Label htmlFor="role" className="text-right text-[#015C92] text-[12px]">
               Role
             </Label>
             <Select>
-              <SelectTrigger className="w-[380px] bg-blue-100">
+              <SelectTrigger className="w-[380px] bg-blue-100 bg-[#F2F8FF] text-[#4E555A] h-[35px]">
                 <SelectValue placeholder="Select role--" />
               </SelectTrigger>
               <SelectContent>
@@ -56,21 +56,23 @@ const UserActionModal = () => {
             </Select>
           </div>
           <div className="">
-            <Label htmlFor="username" className="text-right">
+            <Label htmlFor="username" className="text-right text-[#015C92] text-[12px]">
               Name
             </Label>
             <Input
               id="name"
-              className="col-span-3 bg-blue-100"
+              placeholder="Name"
+              className="col-span-3 bg-blue-100 bg-[#F2F8FF] text-[#4E555A] h-[35px]"
             />
           </div>
           <div className="">
-            <Label htmlFor="email" className="text-right">
+            <Label htmlFor="email" className="text-right text-[#015C92] text-[12px]">
               Email
             </Label>
             <Input
               id="email"
-              className="col-span-3 bg-blue-100"
+              placeholder="Email"
+              className="col-span-3 bg-blue-100 bg-[#F2F8FF] text-[#4E555A] h-[35px]"
             />
           </div>
         </div>

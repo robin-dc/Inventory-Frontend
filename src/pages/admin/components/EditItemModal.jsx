@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,9 +7,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -18,34 +18,30 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 
-import { CalendarDays } from 'lucide-react';
-import * as React from "react"
-import { addDays, format } from "date-fns"
- 
-import { Calendar } from "@/components/ui/calendar"
+import { CalendarDays } from "lucide-react";
+import * as React from "react";
+import { addDays, format } from "date-fns";
+
+import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 
-const ItemActionModal = () => {
-  
-  const [dateAssign, setDateAssign] = React.useState()
-  const [dateInspect, setDateInspect] = React.useState()
-  const [dateReturn, setDateReturn] = React.useState()
+const EditItemModal = () => {
+  const [dateAssign, setDateAssign] = React.useState();
+  const [dateInspect, setDateInspect] = React.useState();
+  const [dateReturn, setDateReturn] = React.useState();
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Add Item</Button>
-      </DialogTrigger>
-
       <DialogContent className="w-[578px] px-[48px] pt-[40px] pb-[40px] rounded-[16px]">
         <DialogHeader className="">
-          <DialogTitle className="text-[24px] text-center text-[#015C92] ">Create New Item</DialogTitle>
+          <DialogTitle className="text-[24px] text-center text-[#015C92] ">
+            Edit Item
+          </DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 pt-1 pb-4">
           <div className="grid grid-cols-1 items-center gap-[1px] p-0">
@@ -102,7 +98,7 @@ const ItemActionModal = () => {
             <Label htmlFor="Status" className="text-[#015C92] text-[12px]">
               Date Assigned
             </Label>
-            <Popover >
+            <Popover>
               <PopoverTrigger asChild>
                 <Button
                   className="col-span-3 justify-between bg-[#F2F8FF] text-[#4E555A] h-[35px]"
@@ -110,19 +106,22 @@ const ItemActionModal = () => {
                 >
                   <span className="font-normal ">
                     {dateAssign ? format(dateAssign, "PPP") : "MM/DD/YYYY"}
-                  </span> 
+                  </span>
                   <CalendarDays />
-                 </Button>
+                </Button>
               </PopoverTrigger>
               <PopoverContent className="flex w-auto flex-col space-y-2 p-2">
                 <Select
                   onValueChange={(value) =>
                     setDateAssign(addDays(new Date(), parseInt(value)))
                   }
-                >
-                </Select>
+                ></Select>
                 <div className="rounded-md border">
-                  <Calendar mode="single" selected={dateAssign} onSelect={setDateAssign} />
+                  <Calendar
+                    mode="single"
+                    selected={dateAssign}
+                    onSelect={setDateAssign}
+                  />
                 </div>
               </PopoverContent>
             </Popover>
@@ -132,7 +131,7 @@ const ItemActionModal = () => {
             <Label htmlFor="Status" className="text-[#015C92] text-[12px]">
               Last Inspection
             </Label>
-            <Popover >
+            <Popover>
               <PopoverTrigger asChild>
                 <Button
                   className="col-span-3 justify-between bg-[#F2F8FF] text-[#4E555A] h-[35px]"
@@ -140,7 +139,7 @@ const ItemActionModal = () => {
                 >
                   <span className="font-normal">
                     {dateInspect ? format(dateInspect, "PPP") : "MM/DD/YYYY"}
-                  </span> 
+                  </span>
                   <CalendarDays />
                 </Button>
               </PopoverTrigger>
@@ -149,10 +148,13 @@ const ItemActionModal = () => {
                   onValueChange={(value) =>
                     setDateInspect(addDays(new Date(), parseInt(value)))
                   }
-                >
-                </Select>
+                ></Select>
                 <div className="rounded-md border">
-                  <Calendar mode="single" selected={dateInspect} onSelect={setDateInspect} />
+                  <Calendar
+                    mode="single"
+                    selected={dateInspect}
+                    onSelect={setDateInspect}
+                  />
                 </div>
               </PopoverContent>
             </Popover>
@@ -162,7 +164,7 @@ const ItemActionModal = () => {
             <Label htmlFor="Date Return" className="text-[#015C92] text-[12px]">
               Date Returned
             </Label>
-            <Popover >
+            <Popover>
               <PopoverTrigger asChild>
                 <Button
                   className="col-span-3 justify-between bg-[#F2F8FF] text-[#4E555A] h-[35px]"
@@ -170,7 +172,7 @@ const ItemActionModal = () => {
                 >
                   <span className="font-normal">
                     {dateReturn ? format(dateReturn, "PPP") : "MM/DD/YYYY"}
-                  </span> 
+                  </span>
                   <CalendarDays />
                 </Button>
               </PopoverTrigger>
@@ -179,26 +181,32 @@ const ItemActionModal = () => {
                   onValueChange={(value) =>
                     setDateReturn(addDays(new Date(), parseInt(value)))
                   }
-                >
-                </Select>
+                ></Select>
                 <div className="rounded-md border">
-                  <Calendar mode="single" selected={dateReturn} onSelect={setDateReturn} />
+                  <Calendar
+                    mode="single"
+                    selected={dateReturn}
+                    onSelect={setDateReturn}
+                  />
                 </div>
               </PopoverContent>
             </Popover>
           </div>
         </div>
         <DialogFooter className="sm:justify-between">
-          <Button 
+          <Button
             type="submit"
             className="h-[40px] w-[120px] font-normal bg-transparent border-[1px] border-[#858585] text-[#4E555A] hover:text-white"
-            >Cancel
+          >
+            Cancel
           </Button>
-          <Button type="submit" className="h-[40px] w-[120px] font-normal">Confirm</Button>
+          <Button type="submit" className="h-[40px] w-[120px] font-normal">
+            Confirm
+          </Button>
         </DialogFooter>
       </DialogContent>
-    </Dialog>
-  )
-}
 
-export default ItemActionModal
+  );
+};
+
+export default EditItemModal;
