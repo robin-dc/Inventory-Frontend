@@ -124,6 +124,42 @@ class Api{
         }
     }
 
+    async addHistory(items){
+        try {
+            const response = await axios.post('/history', items)
+            return response.data
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    async getHistory(){
+        try {
+            const response = await axios.get('/history')
+            return response.data
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    async getHistoryById(id){
+        try {
+            const response = await axios.get(`/history/${id}`)
+            return response.data
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    async deleteHistory(id){
+        try {
+            const response = await axios.delete(`/history/${id}`)
+            return response.data
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
 }
 
 export default new Api()

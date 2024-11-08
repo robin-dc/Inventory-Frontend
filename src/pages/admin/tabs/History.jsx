@@ -1,10 +1,5 @@
 import React from "react";
 import {
-  Card,
-  CardContent,
-  CardHeader,
-} from "@/components/ui/card";
-import {
   Table,
   TableBody,
   TableCell,
@@ -29,33 +24,30 @@ const data = [
 
 export function HistoryTableCard() {
   return (
-    <Card className="w-4/7 mx-auto mt-1 bg-white shadow-md rounded-xl"> <CardHeader>
-        <h2 className="pe-4 text-[#015C92] text-primary text-[32px] font-bold leading-[1.125rem] text-left">History</h2>
-      </CardHeader>
-      <CardContent>
-        <Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead className="pl-12 pr-0 bg-[#015C92] text-white text-justify text-base font-normal h-12">Action Description</TableHead>
-      <TableHead className="pl-4 pr-16 bg-[#015C92] text-white text-left text-base font-normal h-12">Item ID</TableHead>
-      <TableHead className="pl-4 pr-14 bg-[#015C92] text-white text-left text-base font-normal h-12">Performed By</TableHead>
-      <TableHead className="pl-4 pr-16 bg-[#015C92] text-white text-left text-base font-normal h-12">Date & Time</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    {data.map((row, index) => (
-      <TableRow key={index} className={index % 2 === 0 ? "bg-white" : "bg-[#E9F3FF]"}>
-        <TableCell className="pl-12 text-left font-normal h-12">{row.action}</TableCell>
-        <TableCell className="pl-4 pr-16 text-left font-normal h-12">{row.itemId}</TableCell>
-        <TableCell className="pl-4 pr-16 text-left font-normal h-12">{row.performedBy}</TableCell>
-        <TableCell className="pl-4 pr-16 text-left font-normal h-12">{row.dateTime}</TableCell>
-      </TableRow>
-    ))}
-  </TableBody>
-</Table>
-
-      </CardContent>
-    </Card>
+    <div className="p-6 bg-white rounded-xl grid">
+      <h1 className="text-primary text-[32px] font-bold mb-4">History</h1>
+      
+      <Table>
+        <TableHeader className="bg-primary">
+          <TableRow>
+            <TableHead className="text-secondary text-[16px] font-normal">Action Description</TableHead>
+            <TableHead className="text-secondary text-[16px] font-normal">Item ID</TableHead>
+            <TableHead className="text-secondary text-[16px] font-normal">Performed By</TableHead>
+            <TableHead className="text-secondary text-[16px] font-normal">Date & Time</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data.map((data, index) => (
+            <TableRow key={data.data} className={`${index % 2 === 0 ? 'bg-[#FAFCFF]' : 'bg-secondary'}`}>
+              <TableCell className="text-[16px] py-4">{data.action}</TableCell>
+              <TableCell className="text-[16px] py-4">{data.itemId}</TableCell>
+              <TableCell className="text-[16px] py-4">{data.performedBy}</TableCell>
+              <TableCell className="text-[16px] py-4">{data.dateTime}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 }
 
