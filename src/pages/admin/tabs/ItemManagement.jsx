@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import TriggerDeleteModal from "@/pages/admin/components/DeleteConfirmationModal"
 import {
   Popover,
   PopoverContent,
@@ -13,7 +14,6 @@ import { Plus } from 'lucide-react';
 import { Printer } from 'lucide-react';
 import { EllipsisVertical } from 'lucide-react';
 import { Pencil } from 'lucide-react';
-import { Trash } from 'lucide-react';
 
 import {
   Table,
@@ -180,13 +180,7 @@ const ItemManagement = () => {
                           <Pencil className="scale-80" />
                           Edit
                         </Button>
-                        <Button
-                          variant="secondary"
-                          className="bg-white text-primary rounded-none rounded-b-xl text-[12px] flex justify-start"
-                        >
-                          <Trash className="scale-80" />
-                          Delete
-                        </Button>
+                        <TriggerDeleteModal/>
                       </div>
                     </PopoverContent>
                   </Popover>

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Trash } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -13,7 +14,13 @@ const DeleteConfirmationModal = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Delete</Button>
+      <Button
+        variant="secondary"
+        className="bg-white text-primary rounded-none rounded-b-xl text-[12px] flex justify-start"
+        >
+        <Trash className="scale-80" />
+        Delete
+      </Button>
       </DialogTrigger>
       <DialogContent className="w-[350px] h-[400px] flex flex-col items-center justify-center"> 
         
