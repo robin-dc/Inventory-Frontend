@@ -1,19 +1,15 @@
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-
-import { Search } from 'lucide-react';
-import { Plus } from 'lucide-react';
-import { Printer } from 'lucide-react';
-import { EllipsisVertical } from 'lucide-react';
-import { Pencil } from 'lucide-react';
-import { Trash } from 'lucide-react';
+} from "@/components/ui/popover";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Search, Plus, Printer, EllipsisVertical, Pencil, Trash } from "lucide-react";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 import {
   Table,
@@ -22,8 +18,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
- 
+} from "@/components/ui/table";
+
 const items = [
   {
     id: 1,
@@ -135,9 +131,23 @@ const items = [
     lastChecked: "May 21, 2019",
     dateReturned: "May 22, 2019",
   },
-]
+
+];
 
 const ItemManagement = () => {
+  
+  const handlePrint = async () => {
+    const element = document.getElementById("table-content");
+    const canvas = await html2canvas(element);
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "pt", "a4");
+    const imgWidth = pdf.internal.pageSize.getWidth();
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.save("table.pdf");
+  };
+
   return (
     <div className="p-6 bg-white rounded-xl grid">
       <h1 className="text-primary text-[32px] font-bold">Item Management</h1>
@@ -151,17 +161,21 @@ const ItemManagement = () => {
           />
           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary scale-75" />
         </div>
-  
+
         <Button className="text-[16px] font-normal text-secondary rounded-xl">
           <Plus /> Add Item
         </Button>
-        
-        <Button variant="secondary" className="bg-secondary text-[16px] font-normal text-primary rounded-xl border border-[#C2D8FF]">
+
+        <Button 
+          variant="secondary" 
+          className="bg-secondary text-[16px] font-normal text-primary rounded-xl border border-[#C2D8FF]"
+          onClick={handlePrint}
+        >
           <Printer /> Print
         </Button>
       </div>
 
-      <ScrollArea className=" whitespace-nowrap">
+      <ScrollArea className="whitespace-nowrap" id="table-content">
         <Table>
           <TableHeader className="bg-primary">
             <TableRow>
@@ -179,19 +193,20 @@ const ItemManagement = () => {
           </TableHeader>
           <TableBody>
             {items.map((item, index) => (
-              <TableRow key={item.item} className={`${index % 2 === 0 ? 'bg-[#FAFCFF]' : 'bg-secondary'}`}>
+              <TableRow key={item.id} className={`${index % 2 === 0 ? 'bg-[#FAFCFF]' : 'bg-secondary'}`}>
                 <TableCell className="text-[16px] py-1">{item.id}</TableCell>
                 <TableCell className="text-[16px] py-1">{item.item}</TableCell>
                 <TableCell className="text-[16px] py-1">{item.unit}</TableCell>
                 <TableCell className="text-[#F5F5F7] text-[12px]">
-                  <Badge variant="outline" className={`text-secondary ${item.status === 'GOOD' ? 'bg-[#54C392] px-6 py-1' : 'bg-[#A02334]'} py-1`}>
+                <Badge variant="outline" className={`text-secondary ${item.status === 'GOOD' ? 'bg-[#54C392] px-6 py-1' : 'bg-[#A02334]'} py-1`}>
                     {item.status}
                   </Badge>
+
                 </TableCell>
                 <TableCell className="text-[16px] py-1">{item.holder}</TableCell>
                 <TableCell className="text-[16px] py-1">{item.dateGiven}</TableCell>
                 <TableCell className="text-[16px] py-1">{item.location}</TableCell>
-                <TableCell className="text-[16px] py-1">{item.lastChecked}</TableCell>
+                <TableCell className="text-[16px] py-1">{item.lastChecked}</TableCell> 
                 <TableCell className="text-[16px] py-1 pr-0">{item.dateReturned}</TableCell>
                 <TableCell className="text-[16px] py-1 pl-0">
                   <Popover>
@@ -230,9 +245,8 @@ const ItemManagement = () => {
         </Table>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      
     </div>
-  )
-}
+  );
+};
 
-export default ItemManagement
+export default ItemManagement;
