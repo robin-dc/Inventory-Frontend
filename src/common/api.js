@@ -11,6 +11,69 @@ class Api{
         }
     }
 
+    // ITEMS SCHEMA //
+    // model: {
+    //     type: String,
+    //     required: true
+    // },
+    // condition: {
+    //     type: String,
+    //     required: true
+    // },
+    // assignedTo: {
+    //     type: String,
+    //     required: true
+    // },
+    // dateAssigned: {
+    //     type: Date,
+    //     required: true
+    // },
+    // dateReturned: {
+    //     type: Date
+    // },
+    // location: {
+    //     type: String
+    // },
+    // lastInspection: {
+    //     type: Date
+    // }
+
+    // USERS SCHEMA //
+    // name: {
+    //     type: String,
+    //  
+    // },
+    // email: {
+    //     type: String,
+    //     required: true
+    // },
+    // password: {
+    //     type: String,
+    //     required: true
+    // },
+    // role: {
+    //     type: String,
+    //     default: 'faculty'
+    // },
+
+    // HISTORIES SCHEMA //
+    // action: {
+    //     type: String,
+    //     required: true
+    // },
+    // performedBy: {
+    //     type: String,
+    //     required: true
+    // },
+    // datePerformed: {
+    //     type: Date,
+    //     required: true
+    // },
+    // itemId: {
+    //     type: String,
+    //     required: true
+    // }
+
     // Add new item
     async additem(item){
         try {
