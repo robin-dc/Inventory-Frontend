@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/table"
 import { Dialog, DialogTrigger } from "@/components/ui/dialog"
 import EditItemModal from "../components/EditItemModal"
+import CreateItemModal from "../components/CreateItemModal"
 
 const items = [
   {
@@ -154,9 +155,14 @@ const ItemManagement = () => {
             <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary scale-75" />
           </div>
 
-          <Button className="text-[16px] font-normal text-secondary rounded-xl">
-            <Plus /> Add Item
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="text-[16px] font-normal text-secondary rounded-xl">
+                <Plus /> Add Item
+              </Button>
+            </DialogTrigger>
+            <CreateItemModal/>
+          </Dialog>
 
           <Button variant="secondary" className="bg-secondary text-[16px] font-normal text-primary rounded-xl border border-[#C2D8FF]">
             <Printer /> Print
