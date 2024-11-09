@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import api from '@/common/api';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+  const navigate = useNavigate()
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: ''
+  })
+
+  const login = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await api.login(credentials)
+      console.log(response)
+
+      if (response.role) {
+        navigate(`/admin/${response._id}`)
+      }
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
   return (
     <div className="flex item-start max-w-full justify-center h-screen bg-gray-100 m-0">
 
       {/* Left Side */}
-      <div className="hidden lg:flex w-1/2 flex item-start justify-start font-poppins">
+      <div className="hidden lg:flex w-1/2 item-start justify-start font-poppins">
         <img
           src='/urs.png'
           className="w-full h-full "
@@ -31,7 +55,10 @@ const Login = () => {
           <div className="mb-4">
             <Label className="block text-gray-700 text-[20px] mb-2">Username</Label>
             <Input
-              type="text"
+              onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
+              value={credentials.username}
+              type="email"
+              required
               className="block w-full p-4 border border-gray-500 rounded-md text-[16px]"
               placeholder="Type Username"
               style={{ backgroundColor: 'transparent' }}
@@ -41,7 +68,10 @@ const Login = () => {
           <div className="mb-4">
             <Label className="block text-gray-700 text-[20px] mb-2">Password</Label>
             <Input
+              onChange={(e) => { setCredentials({ ...credentials, password: e.target.value }) }}
+              value={credentials.password}
               type="password"
+              required
               className="block w-full p-4 border border-gray-500 rounded-md text-[16px]"
               placeholder="Type Password"
               style={{ backgroundColor: 'transparent' }}
@@ -52,6 +82,7 @@ const Login = () => {
           </div>
 
           <Button
+            onClick={login}
             type="submit"
             className="mt-2 text-lg text-white w-full h-[56px] rounded-md"
             style={{ backgroundColor: 'rgb(1, 92, 146)' }}
