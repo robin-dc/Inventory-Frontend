@@ -8,12 +8,9 @@ import {
 } from "@/components/ui/popover"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
-import { Search } from 'lucide-react';
-import { Plus } from 'lucide-react';
-import { Printer } from 'lucide-react';
-import { EllipsisVertical } from 'lucide-react';
-import { Pencil } from 'lucide-react';
-import { Trash } from 'lucide-react';
+import { Search, Plus, Printer, EllipsisVertical, Pencil, Trash } from "lucide-react";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 import {
   Table,
@@ -141,6 +138,19 @@ const items = [
 ]
 
 const ItemManagement = () => {
+
+  const handlePrint = async () => {
+    const element = document.getElementById("table-content");
+    const canvas = await html2canvas(element);
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "pt", "a4");
+    const imgWidth = pdf.internal.pageSize.getWidth();
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.save("table.pdf");
+  };
+
   return (
       <div className="p-6 bg-white rounded-xl grid">
         <h1 className="text-primary text-[32px] font-bold">Item Management</h1>
@@ -164,12 +174,12 @@ const ItemManagement = () => {
             <CreateItemModal/>
           </Dialog>
 
-          <Button variant="secondary" className="bg-secondary text-[16px] font-normal text-primary rounded-xl border border-[#C2D8FF]">
+          <Button variant="secondary" className="bg-secondary text-[16px] font-normal text-primary rounded-xl border border-[#C2D8FF]" onClick={handlePrint}>
             <Printer /> Print
           </Button>
         </div>
 
-        <ScrollArea className=" whitespace-nowrap">
+        <ScrollArea className="whitespace-nowrap" id="table-content">
           <Table>
             <TableHeader className="bg-primary">
               <TableRow>
